@@ -6239,16 +6239,20 @@
           if (video.src || video.querySelector('source')) return; // Already loaded
           
           if (video.dataset.src) {
+            // Use Supabase Storage URL for videos
+            const supabaseUrl = 'https://kihiwcxjxshvhfposebz.supabase.co/storage/v1/object/public/videos/';
+            const videoUrl = supabaseUrl + video.dataset.src;
+            
             // Create source element for better compatibility
             const source = document.createElement('source');
-            source.src = video.dataset.src;
+            source.src = videoUrl;
             source.type = 'video/mp4';
             video.appendChild(source);
             
             // Also set direct src as fallback
-            video.src = video.dataset.src;
+            video.src = videoUrl;
             
-            console.log('📹 Loading video:', video.dataset.src);
+            console.log('📹 Loading video from Supabase:', video.dataset.src);
           }
         }
 
