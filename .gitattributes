@@ -1,0 +1,2 @@
+# Git LFS disabled for videos to work with Vercel
+# *.mp4 filter=lfs diff=lfs merge=lfs -text
