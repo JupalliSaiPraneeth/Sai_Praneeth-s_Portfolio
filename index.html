@@ -9,11 +9,11 @@
     content="Sai Praneeth Jupalli — Developer & Digital Creator. Specializing in full-stack architecture, machine learning, and distinctive digital experiences.">
   <title>Sai Praneeth Jupalli — Developer & Digital Creator</title>
 
-  <!-- Google Fonts: Oswald (Headlines), Manrope (Body), Plus Jakarta Sans (Navbar/UI), DM Mono (Micro Kickers) -->
+  <!-- Google Fonts: Space Grotesk, Syne, Oswald, Manrope, Plus Jakarta Sans, DM Mono -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link
-    href="https://fonts.googleapis.com/css2?family=Caveat:wght@600;700&family=DM+Mono:ital,wght@0,400;0,500;1,400&family=Manrope:wght@400;500;600;700;800&family=Oswald:wght@500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap"
+    href="https://fonts.googleapis.com/css2?family=Caveat:wght@600;700&family=DM+Mono:ital,wght@0,400;0,500;1,400&family=Manrope:wght@400;500;600;700;800&family=Oswald:wght@500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&family=Syne:wght@700;800&display=swap"
     rel="stylesheet">
 
   <!-- Boxicons -->
@@ -89,33 +89,23 @@
     }
 
     .brand {
-      font-family: var(--font-nav);
-      font-size: 13.5px;
+      font-family: 'Space Grotesk', 'Plus Jakarta Sans', var(--font-body), sans-serif;
+      font-size: clamp(13px, 1.1vw, 15px);
       font-weight: 700;
-      letter-spacing: 0.02em;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
       display: inline-flex;
       align-items: center;
       color: #080808;
-      transition: opacity 0.2s;
+      transition: opacity 0.2s ease, transform 0.2s ease;
     }
 
     .brand:hover {
-      opacity: 0.75;
+      opacity: 0.7;
     }
 
     .brand-mark {
-      display: inline-grid;
-      place-items: center;
-      width: 28px;
-      height: 28px;
-      background: #000;
-      color: #fff;
-      border-radius: 6px;
-      margin-right: 10px;
-      font-size: 11px;
-      font-weight: 800;
-      font-family: var(--font-nav);
-      letter-spacing: 0;
+      display: none !important;
     }
 
     .top-links {
@@ -182,13 +172,28 @@
 
     .mobile-menu-btn {
       display: none;
-      width: 36px;
-      height: 36px;
-      place-items: center;
-      border: 1px solid #111;
-      border-radius: 6px;
-      font-size: 18px;
-      background: #fff;
+      width: 40px;
+      height: 40px;
+      align-items: center;
+      justify-content: center;
+      border: none;
+      border-radius: 0;
+      background: transparent;
+      box-shadow: none;
+      font-size: 26px;
+      color: #080808;
+      cursor: pointer;
+      padding: 0;
+      outline: none;
+      transition: opacity 0.2s ease, transform 0.2s ease;
+    }
+
+    .mobile-menu-btn:hover {
+      opacity: 0.7;
+    }
+
+    .mobile-menu-btn:active {
+      transform: scale(0.92);
     }
 
     /* ══ LAYOUT (3 Columns: Left Sidebar, Center Canvas, Right Sidebar) ══ */
@@ -604,16 +609,17 @@
     .about-fullscreen-wrap {
       position: relative;
       width: 100%;
-      min-height: 480px;
+      min-height: 100vh;
       overflow: visible;
       z-index: 80;
+      background: #090a0d;
     }
 
     .about-section {
-      border-radius: 18px;
+      border-radius: 18px 18px 0 0;
       background: #090a0d;
       color: #ffffff;
-      min-height: 480px;
+      min-height: 100vh;
       padding: clamp(34px, 4vw, 56px) clamp(32px, 4.2vw, 64px);
       overflow: hidden;
       display: flex;
@@ -939,22 +945,25 @@
     .works-fullscreen-wrap {
       position: relative;
       width: 100%;
+      min-height: 100vh;
       overflow: visible;
       z-index: 75;
-      margin-top: clamp(24px, 3.5vw, 44px);
+      margin-top: 0;
+      background: #090a0d;
     }
 
     .works-section {
       position: relative;
       width: 100%;
       box-sizing: border-box;
-      background: #080b0e;
-      border-radius: 18px;
-      padding: clamp(36px, 4vw, 56px) clamp(24px, 3.5vw, 48px);
+      background: #090a0d;
+      border-radius: 0 0 18px 18px;
+      min-height: 100vh;
+      padding: clamp(48px, 5vw, 76px) clamp(24px, 3.5vw, 48px);
       box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5), inset 0 0 0 1px rgba(255, 255, 255, 0.06);
-      overflow: hidden;
+      overflow: visible;
       color: #ffffff;
-      will-change: transform, width, border-radius, padding;
+      will-change: transform, width, min-height, border-radius, padding;
       transform-origin: center center;
     }
 
@@ -963,9 +972,11 @@
     }
 
     .works-inner {
-      width: 85%;
-      max-width: 1620px;
+      width: 100%;
+      max-width: 1560px;
       margin: 0 auto;
+      padding: 0 clamp(16px, 3vw, 48px);
+      box-sizing: border-box;
       position: relative;
       z-index: 2;
     }
@@ -977,9 +988,28 @@
       justify-content: center;
       text-align: center;
       gap: 12px;
-      margin-bottom: clamp(32px, 3.8vw, 48px);
+      margin-bottom: clamp(34px, 4vw, 52px);
       position: relative;
       z-index: 2;
+    }
+
+    .works-kicker-row {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 16px;
+      width: 100%;
+      max-width: 480px;
+    }
+
+    .works-kicker-line {
+      height: 1px;
+      flex: 1;
+      background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.18));
+    }
+
+    .works-kicker-line.right {
+      background: linear-gradient(90deg, rgba(255, 255, 255, 0.18), transparent);
     }
 
     .works-kicker {
@@ -988,6 +1018,7 @@
       letter-spacing: 0.16em;
       color: #a1a1aa;
       user-select: none;
+      white-space: nowrap;
     }
 
     .works-title-row {
@@ -1031,6 +1062,24 @@
       box-shadow: 0 0 35px rgba(255, 255, 255, 0.4);
       background: #ffffff;
       color: #050505;
+    }
+
+    .works-subtext {
+      font: 500 clamp(10.5px, 0.85vw, 12px) var(--font-mono);
+      letter-spacing: 0.12em;
+      color: #71717a;
+      text-transform: uppercase;
+      margin: 2px 0 0;
+      text-align: center;
+    }
+
+    .section-blend-divider {
+      width: 100%;
+      height: 1px;
+      background: linear-gradient(90deg, transparent 0%, rgba(255, 255, 255, 0.08) 25%, rgba(255, 255, 255, 0.16) 50%, rgba(255, 255, 255, 0.08) 75%, transparent 100%);
+      position: relative;
+      z-index: 10;
+      margin: 0;
     }
 
     /* ══ Cards Grid: 4 Per Row (Compact Sizing, No Wasted Space) ══ */
@@ -1137,6 +1186,14 @@
       background: rgba(255, 255, 255, 0.14);
       color: #f4f4f5;
       border: 1px solid rgba(255, 255, 255, 0.25);
+    }
+
+    .p-badge--intern {
+      background: rgba(16, 185, 129, 0.22);
+      color: #34d399;
+      border: 1px solid rgba(52, 211, 153, 0.45);
+      box-shadow: 0 0 10px rgba(16, 185, 129, 0.35);
+      font-weight: 800;
     }
 
     /* Hover Overlay */
@@ -1467,6 +1524,21 @@
       border-color: rgba(255, 255, 255, 0.25);
     }
 
+    .pm-intern-note {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      font-family: var(--font-mono);
+      font-size: 11.5px;
+      color: #34d399;
+      background: rgba(16, 185, 129, 0.12);
+      border: 1px solid rgba(52, 211, 153, 0.32);
+      padding: 9px 18px;
+      border-radius: 999px;
+      font-weight: 600;
+      letter-spacing: 0.04em;
+    }
+
     /* ══ 4. DEFINE / DESIGN / DELIVER SECTION (Process Section with herobg.png) ══ */
     .process-section {
       background: radial-gradient(circle at 75% 25%, rgba(255, 255, 255, 0.04) 0%, rgba(5, 5, 5, 1) 68%), #050505;
@@ -1539,29 +1611,29 @@
       width: 100%;
       max-width: 430px;
       aspect-ratio: 1084 / 1451;
-      border-radius: 20px;
-      overflow: hidden;
-      box-shadow: 0 25px 60px rgba(0, 0, 0, 0.8), 0 0 35px rgba(255, 255, 255, 0.05);
-      border: 1px solid rgba(255, 255, 255, 0.16);
+      border-radius: 0;
+      overflow: visible;
+      box-shadow: none;
+      border: none;
       position: relative;
-      background: #080808;
+      background: transparent;
       transform-style: preserve-3d;
-      transition: border-color 0.3s, box-shadow 0.3s;
     }
 
     .process-photo-wrap:hover {
-      border-color: rgba(255, 255, 255, 0.35);
-      box-shadow: 0 30px 75px rgba(0, 0, 0, 0.9), 0 0 50px rgba(255, 255, 255, 0.1);
+      border-color: transparent;
+      box-shadow: none;
     }
 
     .process-photo-wrap img {
       width: 100%;
       height: 100%;
-      object-fit: cover;
-      object-position: center center;
+      object-fit: contain;
+      object-position: center bottom;
       display: block;
       will-change: transform;
       transition: filter 0.4s ease;
+      filter: drop-shadow(0 20px 45px rgba(0, 0, 0, 0.8));
     }
 
     /* ══ 5. LET'S WORK TOGETHER SECTION (Center-Aligned Editorial Layout) ══ */
@@ -1857,28 +1929,53 @@
       align-items: center;
       gap: 8px;
       background: #ffffff;
-      border: 1px solid #b7b8bc;
-      padding: 8px 14px;
+      border: 1px solid rgba(0, 0, 0, 0.15);
+      padding: 9px 16px;
       border-radius: 999px;
-      box-shadow: 0 4px 18px rgba(0, 0, 0, 0.08);
-      font: 11px var(--font-mono);
-      transition: transform 0.2s, box-shadow 0.2s, background 0.2s;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+      font-family: var(--font-nav);
+      font-size: 12px;
+      font-weight: 600;
+      color: #080808;
+      transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+      cursor: pointer;
     }
 
     .like-widget:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+      transform: translateY(-2px) scale(1.03);
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.14);
+      border-color: rgba(0, 0, 0, 0.3);
     }
 
     .like-widget.has-liked {
-      background: #000;
-      color: #fff;
-      border-color: #000;
+      background: #000000;
+      color: #ffffff;
+      border-color: #000000;
     }
 
     .like-heart {
       font-size: 14px;
       color: #ff334b;
+      display: inline-block;
+      transition: transform 0.2s;
+    }
+
+    .like-widget.has-liked .like-heart {
+      animation: heartPop 0.4s cubic-bezier(0.17, 0.89, 0.32, 1.49);
+    }
+
+    @keyframes heartPop {
+      0% {
+        transform: scale(1);
+      }
+
+      50% {
+        transform: scale(1.4);
+      }
+
+      100% {
+        transform: scale(1);
+      }
     }
 
     /* ══ MOBILE DRAWER MENU ══ */
@@ -2000,21 +2097,68 @@
     }
 
     @media (max-width: 950px) {
+      .layout {
+        display: block;
+        padding: 12px 0 60px;
+      }
+
+      .hero {
+        margin: 0 12px 24px;
+        border-radius: 18px;
+      }
+
+      .about-fullscreen-wrap {
+        width: 100%;
+        margin: 0;
+        min-height: 100vh;
+        background: #090a0d;
+      }
+
+      .about-section {
+        min-height: 100vh;
+        background: #090a0d;
+        border-radius: 0 !important;
+        box-sizing: border-box;
+      }
+
+      .works-fullscreen-wrap {
+        width: 100%;
+        margin-top: 0;
+        min-height: 100vh;
+        background: #090a0d;
+      }
+
+      .works-section {
+        min-height: 100vh;
+        background: #090a0d;
+        border-radius: 0 !important;
+        box-sizing: border-box;
+      }
+
       .works-inner {
-        width: 92%;
+        width: 100% !important;
+        max-width: 100% !important;
+        padding: 0 !important;
+        margin: 0 !important;
       }
 
       .works-cards-grid {
         grid-template-columns: repeat(2, minmax(0, 1fr));
         gap: 16px;
       }
+
+      .process-section {
+        margin: 28px 12px;
+        border-radius: 18px;
+      }
+
+      .contact-card-section {
+        margin: 28px 12px 0;
+        border-radius: 20px;
+      }
     }
 
     @media (max-width: 600px) {
-      .works-inner {
-        width: 96%;
-      }
-
       .works-cards-grid {
         grid-template-columns: 1fr;
         gap: 16px;
@@ -2031,12 +2175,7 @@
       }
 
       .mobile-menu-btn {
-        display: grid;
-      }
-
-      .layout {
-        display: block;
-        padding: 12px;
+        display: flex;
       }
 
       .side-left {
@@ -2128,18 +2267,84 @@
         justify-content: center;
       }
 
+      .works-fullscreen-wrap {
+        border-radius: 0 !important;
+        margin-top: 0 !important;
+        background: #090a0d !important;
+        overflow: visible !important;
+      }
+
       .works-section {
-        padding: clamp(24px, 4vw, 36px) clamp(16px, 3.5vw, 24px);
+        border-radius: 0 !important;
+        overflow: visible !important;
+        padding: 0 !important;
+        background: #090a0d !important;
+        box-shadow: none !important;
+        border: none !important;
+        transform: none !important;
+      }
+
+      .works-inner {
+        width: 100% !important;
+        max-width: 100% !important;
+        padding: 0 !important;
+        margin: 0 !important;
+        overflow: visible !important;
+      }
+
+      /* ══ MOBILE STICKY PROJECTS HEADER ("word projects should be stood there only, but projects scroll down") ══ */
+      .works-header {
+        position: sticky !important;
+        top: 0 !important;
+        z-index: 60 !important;
+        background: rgba(9, 10, 13, 0.96) !important;
+        backdrop-filter: blur(16px) !important;
+        -webkit-backdrop-filter: blur(16px) !important;
+        padding: 12px 16px !important;
+        margin: 0 !important;
+        width: 100% !important;
+        box-sizing: border-box !important;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.08) !important;
+        display: flex !important;
+        flex-direction: row !important;
+        align-items: center !important;
+        justify-content: center !important;
+        box-shadow: 0 8px 25px rgba(0, 0, 0, 0.6) !important;
+      }
+
+      /* Remove circled parts (kicker row and subtext) */
+      .works-kicker-row,
+      .works-subtext,
+      .section-blend-divider {
+        display: none !important;
+      }
+
+      .works-title-row {
+        display: inline-flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+        gap: 12px !important;
+        margin: 0 !important;
       }
 
       .works-title {
-        font-size: clamp(42px, 11vw, 68px);
+        font-size: clamp(32px, 9vw, 42px) !important;
+        line-height: 1 !important;
+        margin: 0 !important;
+        letter-spacing: -0.03em !important;
       }
 
-      .works-header {
-        align-items: center;
-        text-align: center;
-        gap: 10px;
+      .works-title-badge {
+        width: 34px !important;
+        height: 34px !important;
+        font-size: 18px !important;
+        flex-shrink: 0 !important;
+      }
+
+      .works-cards-grid {
+        padding: 16px 14px 40px !important;
+        box-sizing: border-box !important;
+        gap: 16px !important;
       }
 
       .p-card {
@@ -2186,7 +2391,6 @@
   <!-- ══ TOPBAR ══ -->
   <header class="topbar">
     <a class="brand" href="#top">
-      <span class="brand-mark">SP</span>
       SAI PRANEETH JUPALLI
     </a>
 
@@ -2328,82 +2532,94 @@
         </section>
       </div>
 
+      <div class="section-blend-divider" aria-hidden="true"></div>
+
       <!-- ══ 3. SELECTED WORKS / PROJECTS SECTION (Cinematic Fullscreen Expansion) ══ -->
       <div class="works-fullscreen-wrap" id="works-wrap">
         <section class="works-section" id="works">
 
-
           <div class="works-inner">
             <div class="works-header">
-              <div class="works-kicker">SELECTED WORKS</div>
+              <div class="works-kicker-row">
+                <span class="works-kicker-line"></span>
+                <span class="works-kicker">SELECTED WORKS &bull; 2024 &ndash; 2026</span>
+                <span class="works-kicker-line right"></span>
+              </div>
               <div class="works-title-row">
                 <h2 class="works-title">PROJECTS</h2>
                 <div class="works-title-badge" id="works-touch-btn" aria-label="View Projects">
                   <span>↗</span>
                 </div>
               </div>
+              <p class="works-subtext">HAND-CRAFTED SYSTEMS, INTELLIGENT APPLICATIONS &amp; IMMERSIVE EXPERIENCES</p>
             </div>
 
             <!-- All Projects: 4 Per Row Grid -->
             <div class="works-cards-grid">
 
-              <!-- 01 My College Website -->
-              <a href="https://my-college-web-site.vercel.app/" target="_blank" rel="noopener"
+              <!-- 01 CRM Platform -->
+              <a href="javascript:void(0)" data-no-live="true"
+                data-note="&lt;i class='bx bx-lock-alt'&gt;&lt;/i&gt; Internship Work &amp;bull; Internal System"
                 class="p-card interactive-project">
                 <div class="p-card__img">
-                  <img src="college_P.png" alt="My College Website" loading="lazy">
+                  <img src="CRM.png" alt="CRM Platform" loading="lazy">
                   <video class="p-card-video"
-                    data-src="https://res.cloudinary.com/dyn73zhlg/video/upload/q_auto/f_auto/v1776508959/college_V_ys69nx.mp4"
-                    muted loop playsinline></video>
+                    data-src="https://res.cloudinary.com/dyn73zhlg/video/upload/v1777884522/reduced_jmb8dw.mp4" muted
+                    loop playsinline></video>
                   <div class="p-card__overlay"><i class="bx bx-expand"></i><span>View Demo</span></div>
-                  <span class="p-badge p-badge--fe">FE</span>
+                  <span class="p-badge p-badge--intern">INTERN</span>
                 </div>
                 <div class="p-card__body">
-                  <span class="p-tag">FRONTEND / UI/UX</span>
-                  <h3 class="p-title">My College Website</h3>
-                  <p class="p-desc">Built and designed a sleek, animated college website interface in just 1 hour
-                    featuring modern layout techniques.</p>
-                  <div class="p-stack"><span>HTML</span><span>CSS</span><span>JS Animations</span></div>
+                  <span class="p-tag">FULL-STACK ENTERPRISE CRM</span>
+                  <h3 class="p-title">CRM Platform</h3>
+                  <p class="p-desc">I built and developed a full-stack CRM platform as an intern for managing
+                    recruiters, candidates, job postings, applications, and hiring workflows through a centralized
+                    dashboard.</p>
+                  <div class="p-stack"><span>React</span><span>Node.js</span><span>Express</span><span>PostgreSQL</span>
+                  </div>
                 </div>
               </a>
 
-              <!-- 02 Netflix Clone -->
-              <a href="https://netflix-clone-tau-henna.vercel.app" target="_blank" rel="noopener"
+              <!-- 02 Skill Path -->
+              <a href="https://skill-path-zeta.vercel.app/" target="_blank" rel="noopener"
                 class="p-card interactive-project">
                 <div class="p-card__img">
-                  <img src="netflix_P.png" alt="Netflix Clone" loading="lazy">
+                  <img src="skillpath.png" alt="Skill Path" loading="lazy">
                   <video class="p-card-video"
-                    data-src="https://res.cloudinary.com/dyn73zhlg/video/upload/q_auto/f_auto/v1776508979/netflix_V_jbcvju.mp4"
+                    data-src="https://res.cloudinary.com/dyn73zhlg/video/upload/v1792130640/Screen_Recording_2026-08-28_133222_haffyk.mp4"
                     muted loop playsinline></video>
                   <div class="p-card__overlay"><i class="bx bx-expand"></i><span>View Demo</span></div>
-                  <span class="p-badge p-badge--fe">FE</span>
+                  <span class="p-badge p-badge--ai">AI</span>
                 </div>
                 <div class="p-card__body">
-                  <span class="p-tag">FRONTEND</span>
-                  <h3 class="p-title">Netflix Clone</h3>
-                  <p class="p-desc">A highly accurate pixel-perfect replica of the Netflix interface built from scratch
-                    in exactly 1 hour.</p>
-                  <div class="p-stack"><span>HTML</span><span>CSS</span><span>JS</span></div>
+                  <span class="p-tag">AI &amp; CAREER GUIDANCE</span>
+                  <h3 class="p-title">Skill Path</h3>
+                  <p class="p-desc">Skill Gap Analysis and Career Guidance System (B.Tech Major Engineering Capstone
+                    Project). An intelligent, machine-learning-powered web platform designed to analyze technical
+                    competencies, compute multidimensional skill gaps, and generate personalized learning paths.</p>
+                  <div class="p-stack"><span>Python</span><span>Machine
+                      Learning</span><span>FastAPI</span><span>React</span></div>
                 </div>
               </a>
 
-              <!-- 03 Character-Expo (Ben 10) -->
-              <a href="https://jupallisaipraneeth.github.io/My_10ison/" target="_blank" rel="noopener"
+              <!-- 03 HydraClean -->
+              <a href="https://waste-detection-model-3.onrender.com/" target="_blank" rel="noopener"
                 class="p-card interactive-project">
                 <div class="p-card__img">
-                  <img src="ben_P.png" alt="Character-Expo (Ben 10)" loading="lazy">
+                  <img src="hydraclean.png" alt="HydraClean" loading="lazy">
                   <video class="p-card-video"
-                    data-src="https://res.cloudinary.com/dyn73zhlg/video/upload/q_auto/f_auto/v1776509006/ben_V_qfps6o.mp4"
+                    data-src="https://res.cloudinary.com/dyn73zhlg/video/upload/v1792130876/Screen_Recording_2026-08-28_132040_rnbaly.mp4"
                     muted loop playsinline></video>
                   <div class="p-card__overlay"><i class="bx bx-expand"></i><span>View Demo</span></div>
-                  <span class="p-badge p-badge--fe">FE</span>
+                  <span class="p-badge p-badge--ai">AI</span>
                 </div>
                 <div class="p-card__body">
-                  <span class="p-tag">FRONTEND</span>
-                  <h3 class="p-title">Character-Expo (Ben 10)</h3>
-                  <p class="p-desc">A passion project combining childhood memories with advanced JavaScript animations
-                    to showcase characters dynamically.</p>
-                  <div class="p-stack"><span>HTML</span><span>CSS</span><span>Adv. JS</span></div>
+                  <span class="p-tag">AI &amp; COMPUTER VISION</span>
+                  <h3 class="p-title">HydraClean</h3>
+                  <p class="p-desc">HydraClean is an enterprise-grade, intelligent vision transformer framework
+                    engineered for real-time automated detection and analytics of aquatic floating waste.</p>
+                  <div class="p-stack"><span>Vision
+                      Transformer</span><span>YOLOv8</span><span>PyTorch</span><span>OpenCV</span></div>
                 </div>
               </a>
 
@@ -2428,7 +2644,93 @@
                 </div>
               </a>
 
-              <!-- 05 Usha Store -->
+              <!-- 05 Apex Constructions -->
+              <a href="javascript:void(0)" data-no-live="true"
+                data-note="&lt;i class='bx bx-film'&gt;&lt;/i&gt; Cinematic Motion Showcase"
+                class="p-card interactive-project">
+                <div class="p-card__img">
+                  <img src="apex.png" alt="Apex Constructions" loading="lazy">
+                  <video class="p-card-video"
+                    data-src="https://res.cloudinary.com/dyn73zhlg/video/upload/v1792132676/Screen_Recording_2026-10-16_120645_ygukkb.mp4"
+                    muted loop playsinline></video>
+                  <div class="p-card__overlay"><i class="bx bx-expand"></i><span>View Demo</span></div>
+                  <span class="p-badge p-badge--fe">FE</span>
+                </div>
+                <div class="p-card__body">
+                  <span class="p-tag">CINEMATIC MOTION / FRONTEND</span>
+                  <h3 class="p-title">Apex Constructions</h3>
+                  <p class="p-desc">A fully cinematic promotional website based on the construction industry designed to
+                    captivate viewers through advanced motion effects, scroll-driven storytelling, and modern UI
+                    architecture.</p>
+                  <div class="p-stack"><span>React</span><span>GSAP</span><span>TypeScript</span><span>Tailwind
+                      CSS</span></div>
+                </div>
+              </a>
+
+              <!-- 06 Character-Expo (Ben 10) -->
+              <a href="https://jupallisaipraneeth.github.io/My_10ison/" target="_blank" rel="noopener"
+                class="p-card interactive-project">
+                <div class="p-card__img">
+                  <img src="ben_P.png" alt="Character-Expo (Ben 10)" loading="lazy">
+                  <video class="p-card-video"
+                    data-src="https://res.cloudinary.com/dyn73zhlg/video/upload/q_auto/f_auto/v1776509006/ben_V_qfps6o.mp4"
+                    muted loop playsinline></video>
+                  <div class="p-card__overlay"><i class="bx bx-expand"></i><span>View Demo</span></div>
+                  <span class="p-badge p-badge--fe">FE</span>
+                </div>
+                <div class="p-card__body">
+                  <span class="p-tag">FRONTEND</span>
+                  <h3 class="p-title">Character-Expo (Ben 10)</h3>
+                  <p class="p-desc">A passion project combining childhood memories with advanced JavaScript animations
+                    to showcase characters dynamically.</p>
+                  <div class="p-stack"><span>HTML</span><span>CSS</span><span>Adv. JS</span></div>
+                </div>
+              </a>
+
+              <!-- 07 InternShield -->
+              <a href="javascript:void(0)" data-no-live="true"
+                data-note="&lt;i class='bx bx-shield-quarter'&gt;&lt;/i&gt; AI Fraud Detection Engine"
+                class="p-card interactive-project">
+                <div class="p-card__img">
+                  <img src="fakedetect.png" alt="InternShield" loading="lazy">
+                  <video class="p-card-video"
+                    data-src="https://res.cloudinary.com/dyn73zhlg/video/upload/v1792133777/Screen_Recording_2026-10-16_122518_wfax44.mp4"
+                    muted loop playsinline></video>
+                  <div class="p-card__overlay"><i class="bx bx-expand"></i><span>View Demo</span></div>
+                  <span class="p-badge p-badge--ai">AI</span>
+                </div>
+                <div class="p-card__body">
+                  <span class="p-tag">AI FRAUD DETECTION SYSTEM</span>
+                  <h3 class="p-title">InternShield</h3>
+                  <p class="p-desc">In today's hiring landscape, internship scams are increasingly sophisticated.
+                    InternShield is an AI platform that helps students quickly analyze internship offers, posters, and
+                    PDFs via OCR and LLaMA-70B to detect red flags.</p>
+                  <div class="p-stack"><span>Groq LLaMA-70B</span><span>OCR
+                      Engine</span><span>Python</span><span>React</span></div>
+                </div>
+              </a>
+
+              <!-- 08 Netflix Clone -->
+              <a href="https://netflix-clone-tau-henna.vercel.app" target="_blank" rel="noopener"
+                class="p-card interactive-project">
+                <div class="p-card__img">
+                  <img src="netflix_P.png" alt="Netflix Clone" loading="lazy">
+                  <video class="p-card-video"
+                    data-src="https://res.cloudinary.com/dyn73zhlg/video/upload/q_auto/f_auto/v1776508979/netflix_V_jbcvju.mp4"
+                    muted loop playsinline></video>
+                  <div class="p-card__overlay"><i class="bx bx-expand"></i><span>View Demo</span></div>
+                  <span class="p-badge p-badge--fe">FE</span>
+                </div>
+                <div class="p-card__body">
+                  <span class="p-tag">FRONTEND</span>
+                  <h3 class="p-title">Netflix Clone</h3>
+                  <p class="p-desc">A highly accurate pixel-perfect replica of the Netflix interface built from scratch
+                    in exactly 1 hour.</p>
+                  <div class="p-stack"><span>HTML</span><span>CSS</span><span>JS</span></div>
+                </div>
+              </a>
+
+              <!-- 09 Usha Store -->
               <a href="https://www.linkedin.com/feed/update/urn:li:activity:7374681733188800512/" target="_blank"
                 rel="noopener" class="p-card interactive-project">
                 <div class="p-card__img">
@@ -2449,85 +2751,27 @@
                 </div>
               </a>
 
-              <!-- 06 Chat_Burst -->
-              <a href="https://www.linkedin.com/posts/saipraneeth-jupalli-6999432ba_webdevelopment-activity-7382818932988121089-Jg-m"
-                target="_blank" rel="noopener" class="p-card interactive-project">
+              <!-- 10 My College Website -->
+              <a href="https://my-college-web-site.vercel.app/" target="_blank" rel="noopener"
+                class="p-card interactive-project">
                 <div class="p-card__img">
-                  <img src="chat.png" alt="Chat_Burst" loading="lazy">
+                  <img src="college_P.png" alt="My College Website" loading="lazy">
                   <video class="p-card-video"
-                    data-src="https://res.cloudinary.com/dyn73zhlg/video/upload/q_auto/f_auto/v1776508955/chatting_V_ziujoi.mp4"
-                    muted loop playsinline></video>
-                  <div class="p-card__overlay"><i class="bx bx-expand"></i><span>View Demo</span></div>
-                  <span class="p-badge p-badge--fs">FS</span>
-                </div>
-                <div class="p-card__body">
-                  <span class="p-tag">REAL-TIME MESSAGING</span>
-                  <h3 class="p-title">Chat_Burst</h3>
-                  <p class="p-desc">Real-time chat app with live read receipts, secure authentication, and scalable
-                    socket architecture.</p>
-                  <div class="p-stack"><span>React</span><span>Socket.io</span><span>Node.js</span><span>MongoDB</span>
-                  </div>
-                </div>
-              </a>
-
-              <!-- 07 Floating Waste -->
-              <a href="https://github.com/JupalliSaiPraneeth" target="_blank" rel="noopener" class="p-card">
-                <div class="p-card__img">
-                  <img src="edited.png" alt="Floating Waste AI" loading="lazy">
-                  <div class="p-card__overlay"><i class="bx bx-link-external"></i><span>View Project</span></div>
-                  <span class="p-badge p-badge--ai">AI</span>
-                </div>
-                <div class="p-card__body">
-                  <span class="p-tag">AI &amp; COMPUTER VISION</span>
-                  <h3 class="p-title">Floating Waste</h3>
-                  <p class="p-desc">Detecting and classifying waste on water bodies using advanced YOLOv8 computer
-                    vision models.</p>
-                  <div class="p-stack"><span>Python</span><span>YOLOv8</span><span>OpenCV</span><span>Streamlit</span>
-                  </div>
-                </div>
-              </a>
-
-              <!-- 08 Career Builder -->
-              <a href="https://www.linkedin.com/posts/saipraneeth-jupalli-6999432ba_hey-developers-hope-you-gonna-make-your-activity-7409835234202120192-SeT6"
-                target="_blank" rel="noopener" class="p-card interactive-project">
-                <div class="p-card__img">
-                  <img src="resume.png" alt="Career Builder" loading="lazy">
-                  <video class="p-card-video"
-                    data-src="https://res.cloudinary.com/dyn73zhlg/video/upload/q_auto/f_auto/v1776508953/resume_V_fslvtw.mp4"
+                    data-src="https://res.cloudinary.com/dyn73zhlg/video/upload/q_auto/f_auto/v1776508959/college_V_ys69nx.mp4"
                     muted loop playsinline></video>
                   <div class="p-card__overlay"><i class="bx bx-expand"></i><span>View Demo</span></div>
                   <span class="p-badge p-badge--fe">FE</span>
                 </div>
                 <div class="p-card__body">
-                  <span class="p-tag">WEB TOOL &amp; PDF</span>
-                  <h3 class="p-title">Career Builder</h3>
-                  <p class="p-desc">ATS-friendly resume builder for fresh graduates — clean, structured, and
-                    recruiter-ready in minutes.</p>
-                  <div class="p-stack"><span>React</span><span>jsPDF</span><span>HTML2Canvas</span><span>CSS Grid</span>
-                  </div>
+                  <span class="p-tag">FRONTEND / UI/UX</span>
+                  <h3 class="p-title">My College Website</h3>
+                  <p class="p-desc">Built and designed a sleek, animated college website interface in just 1 hour
+                    featuring modern layout techniques.</p>
+                  <div class="p-stack"><span>HTML</span><span>CSS</span><span>JS Animations</span></div>
                 </div>
               </a>
 
-              <!-- 09 The Art of Clustering -->
-              <a href="https://github.com/JupalliSaiPraneeth/-The-Art-of-Clustering-From-Chaos-to-Clarity-"
-                target="_blank" rel="noopener" class="p-card">
-                <div class="p-card__img">
-                  <img src="clustering.jpeg" alt="The Art of Clustering" loading="lazy">
-                  <div class="p-card__overlay"><i class="bx bx-link-external"></i><span>View Project</span></div>
-                  <span class="p-badge p-badge--ml">ML</span>
-                </div>
-                <div class="p-card__body">
-                  <span class="p-tag">MACHINE LEARNING</span>
-                  <h3 class="p-title">The Art of Clustering</h3>
-                  <p class="p-desc">Uncovering invisible patterns using unsupervised ML — clustering humans based on
-                    behavior without being told how.</p>
-                  <div class="p-stack">
-                    <span>Python</span><span>Scikit-learn</span><span>Pandas</span><span>Matplotlib</span>
-                  </div>
-                </div>
-              </a>
-
-              <!-- 10 Beyond the Basket -->
+              <!-- 11 Beyond the Basket -->
               <a href="https://github.com/JupalliSaiPraneeth/-Beyond-the-Basket-A-Deep-Dive-into-Association-Rule-Mining-"
                 target="_blank" rel="noopener" class="p-card">
                 <div class="p-card__img">
@@ -2545,7 +2789,7 @@
                 </div>
               </a>
 
-              <!-- 11 Fast and Curious -->
+              <!-- 12 Fast and Curious -->
               <a href="https://github.com/JupalliSaiPraneeth/Fast-and-Curious-A-Car-Price-ML-Model" target="_blank"
                 rel="noopener" class="p-card">
                 <div class="p-card__img">
@@ -2561,25 +2805,6 @@
                   <div class="p-stack">
                     <span>Python</span><span>Scikit-learn</span><span>Pandas</span><span>Seaborn</span>
                   </div>
-                </div>
-              </a>
-
-              <!-- 12 MarKDowN FestivaL -->
-              <a href="https://lnkd.in/dFZgQ4Hu" target="_blank" rel="noopener" class="p-card interactive-project">
-                <div class="p-card__img">
-                  <img src="fest.png" alt="MarKDowN FestivaL" loading="lazy">
-                  <video class="p-card-video"
-                    data-src="https://res.cloudinary.com/dyn73zhlg/video/upload/q_auto/f_auto/v1776508955/calender_V_hcv1lo.mp4"
-                    muted loop playsinline></video>
-                  <div class="p-card__overlay"><i class="bx bx-expand"></i><span>View Demo</span></div>
-                  <span class="p-badge p-badge--fe">FE</span>
-                </div>
-                <div class="p-card__body">
-                  <span class="p-tag">FRONTEND / ANIMATION</span>
-                  <h3 class="p-title">MarKDowN FestivaL</h3>
-                  <p class="p-desc">A festive-themed webpage attracting holiday enthusiasts with vibrant, engaging
-                    visuals and animations.</p>
-                  <div class="p-stack"><span>HTML</span><span>CSS</span><span>JavaScript</span></div>
                 </div>
               </a>
 
@@ -2689,7 +2914,7 @@
   <!-- ══ LIKE BUTTON WIDGET ══ -->
   <button class="like-widget" id="like-btn" title="Leave an appreciation like">
     <span class="like-heart">❤</span>
-    <span id="like-count">142</span> Likes
+    <span id="like-count">12</span> Likes
   </button>
 
   <!-- ══ INTERACTIVE PROJECT DETAILS MODAL ══ -->
@@ -2720,6 +2945,9 @@
             <span>VISIT PROJECT</span>
             <span class="pm-arrow">↗</span>
           </a>
+          <span class="pm-intern-note" id="pm-intern-note" style="display: none;">
+            <i class="bx bx-lock-alt"></i> Internship Work &bull; Internal System
+          </span>
           <button type="button" class="pm-dismiss-btn" id="pm-dismiss-btn">CLOSE</button>
         </div>
       </div>
@@ -2763,8 +2991,7 @@
   <div class="mobile-drawer" id="mobile-drawer">
     <div class="mobile-drawer-header">
       <div class="brand">
-        <span class="brand-mark">SP</span>
-        SAI PRANEETH
+        SAI PRANEETH JUPALLI
       </div>
       <button class="mobile-drawer-close" id="drawer-close">&times;</button>
     </div>
@@ -2787,10 +3014,11 @@
     </div>
   </div>
 
-  <!-- ══ SCRIPTS: LENIS, GSAP, SCROLLTRIGGER ══ -->
+  <!-- ══ SCRIPTS: LENIS, GSAP, SCROLLTRIGGER, SUPABASE ══ -->
   <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/gsap.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/ScrollTrigger.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/lenis@1.3.11/dist/lenis.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 
   <script>
     'use strict';
@@ -2852,17 +3080,21 @@
         }
       });
 
-      // ── ABOUT SECTION FULLSCREEN EXPANSION ──
+      // ── ABOUT FULLSCREEN EXPANSION ──
       const aboutWrap = document.getElementById('about-wrap');
       const aboutSection = document.getElementById('about');
+      const worksWrap = document.getElementById('works-wrap');
+      const worksSection = document.getElementById('works');
       const sideLeft = document.querySelector('.side-left');
       const sideRight = document.querySelector('.side-right');
       const topbar = document.querySelector('.topbar');
       const aboutTitle = document.querySelector('.about-title');
       const aboutArrow = document.querySelector('.about-big-arrow');
+      const worksTitle = document.querySelector('.works-title');
+      const worksBadge = document.getElementById('works-touch-btn');
 
       if (aboutWrap && aboutSection) {
-        // Timeline 1: Smooth Expansion as user scrolls down from Hero
+        // Expansion Timeline as user scrolls down from Hero into About
         const expandTl = gsap.timeline({
           scrollTrigger: {
             trigger: aboutWrap,
@@ -2900,13 +3132,15 @@
           }, 0);
         }
 
+        // Full Screen Expansion for About Section
         expandTl.to(aboutSection, {
           width: () => document.documentElement.clientWidth + 'px',
           x: () => -aboutWrap.getBoundingClientRect().left,
           borderRadius: 0,
           minHeight: '100vh',
-          height: '100vh',
-          padding: 'clamp(28px, 3.2vw, 44px) clamp(32px, 4.5vw, 64px)',
+          padding: () => window.innerWidth <= 680
+            ? 'clamp(28px, 4vw, 44px) clamp(16px, 3.5vw, 24px)'
+            : 'clamp(36px, 4vw, 56px) clamp(32px, 4.5vw, 64px)',
           ease: 'power1.out'
         }, 0);
 
@@ -2939,28 +3173,10 @@
             ease: 'power1.out'
           }, 0);
         }
-
-        // Timeline 2: Full-screen Pinned Immersion (stays full screen for 100vh of scrolling)
-        ScrollTrigger.create({
-          trigger: aboutWrap,
-          start: 'top top',
-          end: '+=100%',
-          pin: true,
-          pinSpacing: true,
-          anticipatePin: 1,
-          invalidateOnRefresh: true,
-        });
-
       }
 
-      // ── 3. WORKS / PROJECTS SECTION FULLSCREEN EXPANSION ──
-      const worksWrap = document.getElementById('works-wrap');
-      const worksSection = document.getElementById('works');
-      const worksTitle = document.querySelector('.works-title');
-      const worksBadge = document.getElementById('works-touch-btn');
-
+      // ── PROJECTS SECTION FULLSCREEN EXPANSION (SAME AS ABOUT SECTION) ──
       if (worksWrap && worksSection) {
-        // Timeline: Smooth Expansion into full screen as user scrolls down from About
         const worksExpandTl = gsap.timeline({
           scrollTrigger: {
             trigger: worksWrap,
@@ -2971,7 +3187,6 @@
           }
         });
 
-        // Keep sidebars hidden during full-screen immersion
         if (sideLeft) {
           worksExpandTl.to(sideLeft, {
             x: -120,
@@ -2990,22 +3205,24 @@
           }, 0);
         }
 
-        // Keep topbar tucked away for full-screen cinematic immersion
         if (topbar) {
           worksExpandTl.to(topbar, {
-            y: -15,
+            y: -70,
             opacity: 0,
             pointerEvents: 'none',
             ease: 'power1.out'
           }, 0);
         }
 
-        // Expand works section to full screen edge-to-edge
+        // Full Screen Expansion for Projects Section (EXACT SAME AS ABOUT SECTION)
         worksExpandTl.to(worksSection, {
-          width: () => document.documentElement.clientWidth + 'px',
-          x: () => -worksWrap.getBoundingClientRect().left,
+          width: () => window.innerWidth <= 680 ? '100%' : document.documentElement.clientWidth + 'px',
+          x: () => window.innerWidth <= 680 ? 0 : -worksWrap.getBoundingClientRect().left,
           borderRadius: 0,
-          padding: () => window.innerWidth <= 680 ? 'clamp(28px, 4vw, 44px) clamp(16px, 3.5vw, 24px)' : 'clamp(48px, 5.5vw, 84px) clamp(24px, 4.5vw, 64px)',
+          minHeight: '100vh',
+          padding: () => window.innerWidth <= 680
+            ? '0px'
+            : 'clamp(48px, 5.5vw, 84px) clamp(24px, 4.5vw, 64px)',
           ease: 'power1.out'
         }, 0);
 
@@ -3249,6 +3466,7 @@
     const pmDesc = document.getElementById('pm-desc');
     const pmStack = document.getElementById('pm-stack');
     const pmVisitBtn = document.getElementById('pm-visit-btn');
+    const pmInternNote = document.getElementById('pm-intern-note');
 
     function openProjectModal(card) {
       if (!projectModal) return;
@@ -3258,7 +3476,9 @@
       const desc = card.querySelector('.p-desc')?.innerText.trim() || '';
       const badge = card.querySelector('.p-badge');
       const badgeText = badge ? badge.innerText.trim() : '';
-      const liveUrl = card.getAttribute('href') || '#';
+      const rawHref = card.getAttribute('href') || '';
+      const hasNoLive = card.dataset.noLive === 'true' || !rawHref || rawHref === '#' || rawHref.startsWith('javascript');
+      const liveUrl = hasNoLive ? '' : rawHref;
       const videoEl = card.querySelector('.p-card-video');
       const videoSrc = (videoEl && (videoEl.dataset.src || videoEl.src)) ? (videoEl.dataset.src || videoEl.src) : '';
       const imgEl = card.querySelector('.p-card__img img');
@@ -3269,9 +3489,24 @@
       if (pmTitle) pmTitle.innerText = title;
       if (pmTag) pmTag.innerText = tag;
       if (pmDesc) pmDesc.innerText = desc;
+      const customNote = card.dataset.note || '';
       if (pmVisitBtn) {
-        pmVisitBtn.href = liveUrl;
-        pmVisitBtn.setAttribute('aria-label', `Visit ${title}`);
+        if (hasNoLive) {
+          pmVisitBtn.style.display = 'none';
+          if (pmInternNote) {
+            if (customNote) {
+              pmInternNote.innerHTML = customNote;
+              pmInternNote.style.display = 'inline-flex';
+            } else {
+              pmInternNote.style.display = 'none';
+            }
+          }
+        } else {
+          pmVisitBtn.style.display = 'inline-flex';
+          pmVisitBtn.href = liveUrl;
+          pmVisitBtn.setAttribute('aria-label', `Visit ${title}`);
+          if (pmInternNote) pmInternNote.style.display = 'none';
+        }
       }
 
       // Populate Badge
@@ -3331,6 +3566,11 @@
         pmVideo.pause();
         pmVideo.removeAttribute('src');
       }
+      if (pmInternNote) {
+        pmInternNote.style.display = 'none';
+        pmInternNote.innerHTML = '';
+      }
+      if (pmVisitBtn) pmVisitBtn.style.display = 'inline-flex';
     }
 
     // Attach click listeners to all project cards in the grid
@@ -3518,32 +3758,131 @@
       drawerClose.addEventListener('click', () => mobileDrawer.classList.remove('active'));
     }
 
-    /* ══ 7. LIKE WIDGET PERSISTENCE ══ */
-    const likeBtn = document.getElementById('like-btn');
-    const likeCountEl = document.getElementById('like-count');
+    /* ══ 7. REALTIME SYNCHRONIZED SUPABASE LIKES ══ */
+    (function initRealtimeLikes() {
+      const likeBtn = document.getElementById('like-btn');
+      const likeCountEl = document.getElementById('like-count');
+      if (!likeBtn || !likeCountEl) return;
 
-    let storedLikes = parseInt(localStorage.getItem('sp_likes_count') || '142', 10);
-    let hasLiked = localStorage.getItem('sp_has_liked') === 'true';
+      const SUPABASE_URL = 'https://kihiwcxjxshvhfposebz.supabase.co';
+      const SUPABASE_ANON = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImtpaGl3Y3hqeHNodmhmcG9zZWJ6Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzUxMjM3MzMsImV4cCI6MjA5MDY5OTczM30.-gIiXHReNmmcGViP5SiUC9d9SBtKv7Adw3FUmsmHLU8';
 
-    if (likeCountEl) likeCountEl.innerText = storedLikes;
-    if (hasLiked && likeBtn) likeBtn.classList.add('has-liked');
+      let _supabase = null;
+      if (window.supabase && typeof window.supabase.createClient === 'function') {
+        _supabase = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON);
+      }
 
-    if (likeBtn) {
-      likeBtn.addEventListener('click', () => {
-        if (!hasLiked) {
-          storedLikes++;
-          hasLiked = true;
-          likeBtn.classList.add('has-liked');
-        } else {
-          storedLikes = Math.max(142, storedLikes - 1);
-          hasLiked = false;
-          likeBtn.classList.remove('has-liked');
+      // Generate consistent unique browser identifier
+      function getBrowserId() {
+        let id = localStorage.getItem('sp_browser_id');
+        if (!id) {
+          const raw = (navigator.userAgent || '') + (navigator.language || '') + screen.width + 'x' + screen.height + new Date().getTimezoneOffset();
+          let hash = 0;
+          for (let i = 0; i < raw.length; i++) {
+            hash = ((hash << 5) - hash) + raw.charCodeAt(i);
+            hash |= 0;
+          }
+          id = 'browser-' + Math.abs(hash).toString(16) + '-' + Date.now().toString(36);
+          localStorage.setItem('sp_browser_id', id);
         }
-        likeCountEl.innerText = storedLikes;
-        localStorage.setItem('sp_likes_count', storedLikes);
-        localStorage.setItem('sp_has_liked', hasLiked);
+        return id;
+      }
+
+      const browserId = getBrowserId();
+      let hasLiked = localStorage.getItem('sp_has_liked') === 'true';
+      let currentLikes = parseInt(likeCountEl.innerText.trim(), 10) || 12;
+
+      if (hasLiked) {
+        likeBtn.classList.add('has-liked');
+      }
+
+      // Fetch accurate real likes count from Supabase
+      async function syncLikesFromDatabase() {
+        if (!_supabase) return;
+        try {
+          const { count, error } = await _supabase
+            .from('likes')
+            .select('*', { count: 'exact', head: true });
+
+          if (!error && typeof count === 'number') {
+            currentLikes = count;
+            likeCountEl.innerText = currentLikes;
+          }
+
+          // Check if this browser already liked in database
+          const { data } = await _supabase
+            .from('likes')
+            .select('id')
+            .eq('email', browserId)
+            .maybeSingle();
+
+          if (data) {
+            hasLiked = true;
+            likeBtn.classList.add('has-liked');
+            localStorage.setItem('sp_has_liked', 'true');
+          } else {
+            hasLiked = false;
+            likeBtn.classList.remove('has-liked');
+            localStorage.setItem('sp_has_liked', 'false');
+          }
+        } catch (e) {
+          console.warn('Supabase likes sync notice:', e);
+        }
+      }
+
+      syncLikesFromDatabase();
+
+      // Listen for realtime updates from other visitors globally
+      if (_supabase) {
+        try {
+          _supabase.channel('public:likes')
+            .on('postgres_changes', { event: '*', schema: 'public', table: 'likes' }, () => {
+              syncLikesFromDatabase();
+            })
+            .subscribe();
+        } catch (e) {
+          console.warn('Realtime subscription notice:', e);
+        }
+      }
+
+      // Like / Unlike click handler
+      likeBtn.addEventListener('click', async () => {
+        if (!hasLiked) {
+          // Optimistic UI update
+          hasLiked = true;
+          currentLikes++;
+          likeBtn.classList.add('has-liked');
+          likeCountEl.innerText = currentLikes;
+          localStorage.setItem('sp_has_liked', 'true');
+
+          if (_supabase) {
+            const { error } = await _supabase.from('likes').insert({
+              email: browserId,
+              created_at: new Date().toISOString()
+            });
+            if (error) {
+              console.error('Like error:', error);
+              syncLikesFromDatabase();
+            }
+          }
+        } else {
+          // Optimistic Unlike
+          hasLiked = false;
+          currentLikes = Math.max(0, currentLikes - 1);
+          likeBtn.classList.remove('has-liked');
+          likeCountEl.innerText = currentLikes;
+          localStorage.setItem('sp_has_liked', 'false');
+
+          if (_supabase) {
+            const { error } = await _supabase.from('likes').delete().eq('email', browserId);
+            if (error) {
+              console.error('Unlike error:', error);
+              syncLikesFromDatabase();
+            }
+          }
+        }
       });
-    }
+    })();
   </script>
 </body>
 
