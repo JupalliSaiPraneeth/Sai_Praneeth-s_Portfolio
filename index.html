@@ -2146,12 +2146,20 @@
     @media (max-width: 950px) {
       .layout {
         display: block;
-        padding: 12px 0 60px;
+        padding: 0 0 60px;
+        max-width: 100%;
+      }
+
+      .center {
+        gap: 0;
       }
 
       .hero {
-        margin: 0 12px 24px;
-        border-radius: 18px;
+        margin: 0;
+        width: 100%;
+        height: 100svh;
+        min-height: 600px;
+        border-radius: 0;
       }
 
       .portrait {
@@ -2159,8 +2167,11 @@
         right: 0 !important;
         margin: 0 auto !important;
         bottom: 0 !important;
-        height: 84%;
-        max-width: 90%;
+        height: 86%;
+        max-height: 88vh;
+        max-width: 95%;
+        object-fit: contain;
+        object-position: center bottom;
         transform-origin: center bottom;
       }
 
@@ -2280,23 +2291,27 @@
       }
 
       .hero {
-        height: 520px;
-        min-height: 0;
+        margin: 0;
+        width: 100%;
+        height: 100svh;
+        min-height: 560px;
+        border-radius: 0;
       }
 
       .eyebrow {
-        top: 20px;
-        left: 20px;
-        font-size: 10px;
+        top: clamp(20px, 4vh, 32px);
+        left: clamp(16px, 4vw, 24px);
+        font-size: 10.5px;
       }
 
       .giant-marquee-content {
-        font-size: clamp(88px, 22vw, 160px);
+        font-size: clamp(96px, 24vw, 170px);
       }
 
       .portrait {
-        height: 84%;
-        max-width: 92%;
+        height: 86%;
+        max-height: 88vh;
+        max-width: 95%;
         left: 0 !important;
         right: 0 !important;
         margin: 0 auto !important;
@@ -2305,8 +2320,8 @@
       }
 
       .scroll-cue {
-        right: 5%;
-        bottom: 5%;
+        right: clamp(16px, 4vw, 24px);
+        bottom: clamp(16px, 3vh, 28px);
         font-size: 9px;
       }
 
