@@ -596,9 +596,10 @@
       max-width: 85%;
       object-fit: contain;
       object-position: center bottom;
-      bottom: -0.5%;
-      left: 50%;
-      transform: translateX(-50%);
+      bottom: 0;
+      left: 0;
+      right: 0;
+      margin: 0 auto;
       filter: drop-shadow(0 10px 10px rgba(0, 0, 0, 0.04));
       transform-origin: center bottom;
       pointer-events: none;
@@ -2153,6 +2154,16 @@
         border-radius: 18px;
       }
 
+      .portrait {
+        left: 0 !important;
+        right: 0 !important;
+        margin: 0 auto !important;
+        bottom: 0 !important;
+        height: 84%;
+        max-width: 90%;
+        transform-origin: center bottom;
+      }
+
       .about-fullscreen-wrap {
         width: 100%;
         margin: 0;
@@ -2284,8 +2295,13 @@
       }
 
       .portrait {
-        height: 82%;
-        max-width: 95%;
+        height: 84%;
+        max-width: 92%;
+        left: 0 !important;
+        right: 0 !important;
+        margin: 0 auto !important;
+        bottom: 0 !important;
+        transform-origin: center bottom;
       }
 
       .scroll-cue {
@@ -3149,10 +3165,14 @@
     if (window.gsap && window.ScrollTrigger && !prefersReducedMotion) {
       gsap.registerPlugin(ScrollTrigger);
 
-      // Hero portrait scrub scale
+      // Hero portrait scrub scale (locked to center-bottom with zero horizontal drift)
+      gsap.set('#portrait', { x: 0, xPercent: 0, transformOrigin: 'center bottom' });
       gsap.to('#portrait', {
-        scale: 1.12,
-        y: 20,
+        scale: 1.1,
+        y: 15,
+        x: 0,
+        xPercent: 0,
+        transformOrigin: 'center bottom',
         ease: 'none',
         scrollTrigger: {
           trigger: '.hero',
