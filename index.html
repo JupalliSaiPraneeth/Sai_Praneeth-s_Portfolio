@@ -13,8 +13,12 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link
-    href="https://fonts.googleapis.com/css2?family=Caveat:wght@600;700&family=DM+Mono:ital,wght@0,400;0,500;1,400&family=Manrope:wght@400;500;600;700;800&family=Oswald:wght@500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&family=Syne:wght@700;800&display=swap"
+    href="https://fonts.googleapis.com/css2?family=Caveat:wght@600;700&family=DM+Mono:ital,wght@0,400;0,500;1,400&family=Manrope:wght@400;500;600;700;800&family=Oswald:wght@500;600;700&family=Outfit:wght@500;600;700;800;900&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&family=Syne:wght@600;700;800&display=swap"
     rel="stylesheet">
+
+  <!-- Redaction Typeface (Designed by Jeremy Mickel & Forest Young) -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fontsource/redaction@5.3.0/400.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fontsource/redaction@5.3.0/700.css">
 
   <!-- Boxicons -->
   <link href="https://cdn.jsdelivr.net/npm/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
@@ -70,7 +74,7 @@
       background: none;
     }
 
-    /* ══ TOPBAR ══ */
+    /* ══ TOPBAR (Laptop & Large Monitors) ══ */
     .topbar {
       height: 72px;
       display: flex;
@@ -88,20 +92,73 @@
       font-family: var(--font-nav);
     }
 
-    .brand {
-      font-family: 'Space Grotesk', 'Plus Jakarta Sans', var(--font-body), sans-serif;
-      font-size: clamp(13px, 1.1vw, 15px);
+    @font-face {
+      font-family: 'Redaction';
+      font-style: normal;
+      font-display: swap;
+      font-weight: 400;
+      src: url('https://cdn.jsdelivr.net/npm/@fontsource/redaction@5.3.0/files/redaction-latin-400-normal.woff2') format('woff2');
+    }
+
+    @font-face {
+      font-family: 'Redaction';
+      font-style: normal;
+      font-display: swap;
       font-weight: 700;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
+      src: url('https://cdn.jsdelivr.net/npm/@fontsource/redaction@5.3.0/files/redaction-latin-700-normal.woff2') format('woff2');
+    }
+
+    .brand {
+      font-family: 'Redaction', Georgia, 'Times New Roman', serif;
+      font-size: clamp(17px, 1.4vw, 20.5px);
+      font-weight: 400;
+      letter-spacing: -0.01em;
       display: inline-flex;
       align-items: center;
+      gap: 7px;
       color: #080808;
+      text-decoration: none;
       transition: opacity 0.2s ease, transform 0.2s ease;
+      white-space: nowrap;
+      user-select: none;
     }
 
     .brand:hover {
-      opacity: 0.7;
+      opacity: 0.8;
+      transform: translateY(-0.5px);
+    }
+
+    .brand-name {
+      font-family: 'Redaction', Georgia, serif;
+      font-weight: 700;
+      color: #080808;
+      letter-spacing: -0.015em;
+    }
+
+    .brand-surname {
+      font-family: 'Redaction', Georgia, serif;
+      font-weight: 400;
+      color: #55555d;
+      letter-spacing: -0.005em;
+      transition: color 0.2s ease;
+    }
+
+    .brand:hover .brand-surname {
+      color: #080808;
+    }
+
+    .brand-dot {
+      display: none !important;
+    }
+
+    .mobile-drawer .brand-name {
+      font-family: 'Redaction', Georgia, serif;
+      color: #ffffff;
+    }
+
+    .mobile-drawer .brand-surname {
+      font-family: 'Redaction', Georgia, serif;
+      color: #b0b1ba;
     }
 
     .brand-mark {
@@ -171,29 +228,7 @@
     }
 
     .mobile-menu-btn {
-      display: none;
-      width: 40px;
-      height: 40px;
-      align-items: center;
-      justify-content: center;
-      border: none;
-      border-radius: 0;
-      background: transparent;
-      box-shadow: none;
-      font-size: 26px;
-      color: #080808;
-      cursor: pointer;
-      padding: 0;
-      outline: none;
-      transition: opacity 0.2s ease, transform 0.2s ease;
-    }
-
-    .mobile-menu-btn:hover {
-      opacity: 0.7;
-    }
-
-    .mobile-menu-btn:active {
-      transform: scale(0.92);
+      display: none !important;
     }
 
     /* ══ LAYOUT (3 Columns: Left Sidebar, Center Canvas, Right Sidebar) ══ */
@@ -2025,6 +2060,17 @@
     }
 
     /* ══ RESPONSIVE BREAKPOINTS ══ */
+    /* Hide navbar completely on mobile and tablet versions (<= 1024px) */
+    @media (max-width: 1024px) {
+      .topbar {
+        display: none !important;
+      }
+
+      .side {
+        top: clamp(16px, 2vw, 24px);
+      }
+    }
+
     @media (max-width: 1050px) {
       .layout {
         grid-template-columns: minmax(100px, 0.7fr) minmax(0, 3fr);
@@ -2165,9 +2211,49 @@
       }
     }
 
+    /* Hide Process section photo on mobile version only */
+    @media (max-width: 768px) {
+
+      .process-right,
+      .process-photo-wrap,
+      #process-photo-wrap,
+      #process-photo-img {
+        display: none !important;
+      }
+
+      .process-left {
+        min-height: auto !important;
+        width: 100% !important;
+      }
+
+      .process-desc {
+        max-width: 100% !important;
+        margin-top: 20px !important;
+        min-height: auto !important;
+      }
+
+      .process-section {
+        padding: clamp(32px, 6vw, 48px) clamp(20px, 5vw, 32px) !important;
+        gap: 0 !important;
+      }
+    }
+
     @media (max-width: 680px) {
+
+      .process-right,
+      .process-photo-wrap,
+      #process-photo-wrap,
+      #process-photo-img {
+        display: none !important;
+      }
+
+      .process-left {
+        min-height: auto !important;
+        width: 100% !important;
+      }
+
       .topbar {
-        height: 62px;
+        display: none !important;
       }
 
       .top-links {
@@ -2175,7 +2261,7 @@
       }
 
       .mobile-menu-btn {
-        display: flex;
+        display: none !important;
       }
 
       .side-left {
@@ -2388,10 +2474,11 @@
 
 <body>
 
-  <!-- ══ TOPBAR ══ -->
+  <!-- ══ TOPBAR (Visible only on laptop and large monitor versions) ══ -->
   <header class="topbar">
-    <a class="brand" href="#top">
-      SAI PRANEETH JUPALLI
+    <a class="brand" href="#top" aria-label="Sai Praneeth Jupalli">
+      <span class="brand-name">Sai Praneeth</span>
+      <span class="brand-surname">Jupalli</span>
     </a>
 
     <nav class="top-links">
@@ -2404,13 +2491,7 @@
         ↗</a>
       <button class="hire" id="topbar-hire-btn">HIRE ME ↗</button>
     </nav>
-
-    <button class="mobile-menu-btn" id="mobile-toggle" aria-label="Open navigation menu">
-      <i class="bx bx-menu"></i>
-    </button>
   </header>
-
-  <!-- ══ 3-COLUMN MAIN LAYOUT ══ -->
   <main class="layout" id="top">
 
     <!-- ══ LEFT STICKY SIDEBAR (Video Frame 1) ══ -->
@@ -2991,7 +3072,8 @@
   <div class="mobile-drawer" id="mobile-drawer">
     <div class="mobile-drawer-header">
       <div class="brand">
-        SAI PRANEETH JUPALLI
+        <span class="brand-name">Sai Praneeth</span>
+        <span class="brand-surname">Jupalli</span>
       </div>
       <button class="mobile-drawer-close" id="drawer-close">&times;</button>
     </div>
